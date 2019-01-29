@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//单独提出fun
+		function fun(){
+			console.log(this.name)
+		}
+
+		function One(name,age){
+			this.name = name;
+			this.age = age; 
+			this.say = window.fun;
+			// this.say = function(){
+			// 	console.log(this.name)
+			// }
+		}
+		
+		
+		var aa = new One('张三',19);
+		var aa1= new One('张三1',19);
+		aa.say();
+		aa1.say()
+
+		console.log(aa)
+		console.log(aa1)
+	</script>
+</body>
+</html>

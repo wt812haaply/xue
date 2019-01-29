@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+
+
+	<script type="text/javascript">
+
+	function aa(a,b){
+		return a+b
+	}
+
+	function bb(a,c){
+		console.log(a)
+		console.log(c)
+		return a*c
+	}
+
+	console.log(aa.call(bb(3,1),3,3))
+
+	</script>
+</body>
+</html>

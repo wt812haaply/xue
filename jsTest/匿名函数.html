@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+
+
+	<script type="text/javascript">
+
+	/*
+		1
+	*/
+	var bb = function fu(a,b){
+		return a+b
+	} 
+	console.log(bb(5,5));
+
+	/*
+		2
+	*/
+	function fa(a,b){
+		var cc = a+b
+		return console.log(cc)
+	} fa(10,10);
+
+	/*
+		3
+	*/
+
+	(function fc(a,b){
+		console.log(a+b)
+	}) (15,15);
+
+	/*
+		4
+	*/
+	((a,b)=>console.log(a+b))(20,20);
+
+	/*
+		5
+	*/
+	(function (a,b){
+		console.log(a+b)
+	}) (25,25);
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<script type="text/javascript">
+	window.onload = function()
+	{
+		var otxt=document.getElementById('txt1');
+		var obtn=document.getElementById('btn1');
+		var oul=document.getElementById('ul1');
+
+		obtn.onclick = function()
+		{
+			var oli=document.createElement('li');
+			var ali=oul.getElementsByTagName('li');
+			oli.innerHTML=txt1.value;
+			//oul是父节点.appendChild  oli(子节点);
+			// oul.appendChild(oli);
+			if (ali.length==0) {
+				oul.appendChild(oli);
+			}
+			else 
+			{
+				oul.insertBefore(oli,ali[1]);
+			}
+			
+		}
+	}
+</script>
+<body>
+<input id="txt1"  type="text" name="">
+<button id="btn1" value="">按钮</button>
+<ul id="ul1">
+<li>11</li>
+<li>22</li>
+</ul>
+</body>
+</html>

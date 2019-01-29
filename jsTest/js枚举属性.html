@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js枚举属性</title>
+</head>
+<body>
+	
+	<div></div>
+
+
+	<script>
+
+
+	var obj = {
+		a:1,
+		b:2,
+		c:3,
+		d:4
+	};
+
+	
+	//forEach
+	console.log('----------------forEach----')
+	Object.keys(obj).forEach((data)=>console.log(data,'1'))
+
+
+
+	//map
+	console.log('----------------map----')
+	var result = Object.keys(obj).map(function (data){
+		return data
+	})
+	console.log(result)
+
+
+
+	//filter
+	console.log('----------------filter----')
+	var result2 = Object.keys(obj).filter(function (data){
+		return data
+	})
+	console.log(result2)
+
+
+	//for in
+	console.log('----------------for in----')
+	for( var n in obj){
+		console.log(n,'变量')
+		console.log(obj[n],'对象')
+	}
+
+
+	</script>
+</body>
+</html>

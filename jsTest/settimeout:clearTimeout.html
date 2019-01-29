@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>	
+
+	<button onclick="fa()">点击</button>
+	<button onclick="fb()">停止</button>
+	<button onclick="click1()">防止重复点击</button>
+
+	<script type="text/javascript">
+		var a = 1;
+		var b = 6;
+		var t;
+		var isclick= true;
+		
+		// setTimeout 方法
+		function fa(){
+
+			t = setTimeout( function(){
+				console.log(a++)
+				function faa(){
+					if(a <= b){
+						return fa()
+					}
+				} faa()
+			},1000)
+		} 
+
+		// 停止
+		function fb(){
+			clearTimeout(t)
+		}
+
+		// 防止重复点击
+		function click1(){
+		    if(isclick){
+		       isclick = false;
+		       fa();
+		    } 
+		}
+
+
+		/*
+		// setInterval
+  		var n = 1;
+  		var mn;
+  		mn = setInterval(function(){
+  			console.log(n++)
+  			if(n == 10){
+  				mb();
+  				Total(19,1);
+  				
+  			}
+  		},1000)
+		
+		// clearInterval
+		function mb(){
+  			clearInterval(mn)
+  		}
+
+  		function Total(a,b){
+  			return console.log(a+b)
+  		} 
+		*/
+
+
+
+
+  		
+
+	</script>
+</body>
+</html>

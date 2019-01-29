@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+	div{
+		width: 100px;
+		height: 40px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+	}
+	div.btn{
+		background: red;
+		
+	}
+
+	div.wo{
+		background: blue;
+		width: 100px;
+	}
+	.HH{
+		color: red;
+	}
+	.three{
+		background: blue;
+	}
+</style>
+	
+
+
+	<script type="text/javascript">
+	window.onload = function(){
+
+
+		var body = document.body;
+		console.log(body)
+
+
+		var all = document.all;
+		for(var i=0;i<all.length; i++){
+			console.log(all[i])
+		}
+		console.log(all.length)
+
+		var btn = document.getElementById('btn');
+		btn.onclick= function(){
+			btn.className = 'wo'
+			alert('wo')
+		}
+
+		//querySelector ie8+ 
+		/*
+		* 改方法只会返回一个(第一个)
+		*/
+		var div1 = document.querySelector('.one .two')
+		console.log(div1)
+
+
+		var div2 = document.querySelectorAll('.one .two')
+		console.log(div2)
+		for(var i=0; i<div2.length; i++){
+			console.log(div2[i])
+		}
+
+
+		var three = document.querySelectorAll('.three')
+		console.log(three)
+		for(var i=0; i<three.length; i++){
+			console.log(three[i])
+			three[i].className = 'three HH'
+		}
+	}
+
+
+
+
+
+	
+	</script>
+
+
+	<div id="btn" class="btn">
+		<div class="one three">
+			<span class="two">111</span>
+		</div>
+
+		<div class="one">
+			<span class="two">222</span>
+		</div>
+
+
+		<div class="one">
+			<span class="two three">333</span>
+		</div>
+			
+
+	</div>
+</body>
+</html>

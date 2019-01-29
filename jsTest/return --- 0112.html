@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<script type="text/javascript">
+
+	function fn(){
+		var b= 10+3;
+		return document.write(b,',')
+	} 
+	var bb = fn();
+	var cc = fn();
+
+
+	
+	function mm(a,b){
+		if (a>b){
+		  return;
+		}
+		x=a+b
+		console.log(x)
+	} mm(2,10);
+	
+
+
+
+	
+
+	function aa(){
+		var a1='这里是a1的文案';
+		var a2='这里是a22222222222的文案';
+		if(a1.length < a2.length){
+			return function (){
+				console.log(a1)
+
+			}
+		} else{
+			return function (){
+				console.log(a2)
+			}
+		}
+	} aa()();
+
+
+	</script>
+</body>
+</html>

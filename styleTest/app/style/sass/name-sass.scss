@@ -1,0 +1,1123 @@
+/*
+
+@include 
+@mixin
+@exted
+@if @else if @else{}
+@for $i from …… through ……{}
+@each $i in one,two, three, four{}
+
+1.操作符优先级
+括号中的操作具有最高优先级
+乘法、除法的优先级高于加法和减法
+
+2.逻辑操作符
+and    x and y 与操作
+or     x or y  或操作
+not    not x   取反
+
+---------- 1
+%mr{
+   margin-right:10px;
+}
+
+body{
+    @extend %mr;
+}
+------------2
+*/
+
+* {
+        margin: 0;
+        border: 0;
+        padding: 0;
+}
+
+$unit:1/18.75rem;
+
+
+/*  */
+
+$unit:top,
+right,
+bottom,
+left;
+@mixin one {
+        @each $i in $unit {
+                margin-#{$i}: 1px;
+        }
+}
+
+.et {
+        @include one;
+}
+
+
+/* @if @else */
+
+$on:100px;
+$off:200px;
+p {
+        @if $on+$off==3 {
+                background: red;
+        }
+        @else {
+                background: blue;
+        }
+}
+
+
+/* @extend 继承 */
+
+.class1 {
+        width: 500px;
+        border: 1px red solid;
+}
+
+.class2 {
+        font-size: 12px;
+        @extend .class1
+}
+
+
+/* @mixin 配合 @inclued 可以重用的代码块 */
+
+@mixin wh {
+        width: 100px;
+        height: 100px;
+}
+
+.et {
+        @include wh font-size: 12px;
+}
+
+
+
+/*  传参数 */
+
+@mixin right($val:100px) {
+        margin: $val;
+}
+
+.ett {
+        @include right
+}
+
+
+/* @if else */
+
+.wt1 {
+        @if ( 2 < 0) {
+                background: #000;
+        }
+        @if 2>0 {
+                font-size: 12px;
+        }
+        @else {
+                background: yellow;
+        }
+}
+
+
+/* @mixin @if @else */
+
+@mixin test1 {
+        @if 12==12 {
+                color: red;
+        }
+        @else {
+                color: #fff;
+        }
+}
+
+.test1 {
+        @include test1
+}
+
+
+/* @mixin @if @else */
+
+$unit:1rem/18.75;
+@mixin wh($wh) {
+        width: $wh;
+        height: $wh;
+}
+
+@mixin test2($size) {
+        @include wh(200 * $unit);
+        @if $size==yes {
+                color: red;
+                font-size: 12px;
+        }
+        @else if $size==no {
+                color: blue;
+                line-height: 100px;
+        }
+}
+
+.test1 {
+        @include test2(yes)
+}
+
+.test2 {
+        @include test2(no)
+}
+
+
+
+/* 
+ @for $i from start through end 
+ （for）循环 i 从 …… 到 ……
+*/
+
+@for $i from 1 through 4 {
+        .test-#{$i} {
+                /* width: 100/4 * $i + %; */
+                width:100%/1 * $i;
+        }
+}
+
+
+
+/* 
+    each 1
+ */
+
+$test:top, right, bottom, left;
+@mixin btn-extend {
+        @each $i in $test {
+                border-#{$i}: 150px;
+        }
+}
+
+.btn {
+        @include btn-extend;
+}
+
+
+
+
+/* each 22 */
+
+@each $i in one,
+two,
+three,
+four {
+        .#{$i}-fb {
+                background: url('/img/#{$i}.png');
+        }
+}
+
+
+
+/* 同上111 */
+
+$ppl: ( usre1:one, usre2:two, usre3:three, usre4:four);
+@each $key, $usre in $ppl {
+        .#{$usre}-avatar {
+                background-image: url('/img/#{$usre}.png');
+        }
+}
+
+
+
+
+
+
+@mixin center($width: null,
+$height: null) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        @if not $width and not $height {
+                transform: translate(-50%, -50%);
+        }
+        @else if $width and $height {
+                width: $width;
+                height: $height;
+                margin: -($width / 2) #{0 0} -($height / 2);
+        }
+        @else if not $height {
+                width: $width;
+                margin-left: -($width / 2);
+                transform: translateY(-50%);
+        }
+        @else {
+                height: $height;
+                margin-top: -($height / 2);
+                transform: translateX(-50%);
+        }
+}
+
+
+.child-with-known-width {
+        @include center(400px);
+}
+
+.child-with-known-height {
+        @include center($height: 400px);
+}
+
+.child-with-known-dimensions {
+        @include center(400px,
+        400px);
+}
+
+
+/*  */
+
+@for $i from 1 through 9 {
+        .font-#{$i} {
+                font-weight: 100 * $i;
+        }
+}
+
+@each $i in 1 3 5 7 9 {
+        .font-#{$i} {
+                font-weight: $i * 100;
+        }
+}
+
+
+
+
+
+
+
+/*  */
+
+p {
+        $fontSize: 12px;
+        $lineHeight: 30px;
+        font: #{$fontSize} / #{$lineHeight};
+}
+
+
+
+/*  */
+
+@mixin does {
+        @if & {
+                &:hover {
+                        color: red;
+                }
+        }
+        @else {
+                a {
+                        color: red;
+                }
+        }
+}
+
+.wta {
+        @include does
+}
+
+
+
+/* PingFang SC font-weight    @each in …… */
+
+@each $name,
+$weight in  (u,100) /* 极细体 */
+            (t,200)/* 纤细体 */
+            (l,300)/* 细体   */
+            (r,400)/* 常规体 */
+            (m,500)/* 中黑体 */
+            (s,600)/* 中粗体 */
+            (b,700)/* 粗体   */
+
+{
+        .font-#{$name} {
+                font-weight: $weight;
+        }
+}
+
+
+/*  @each in …… 同上 */
+
+@each $name,
+$weight in (u:100,
+t:200,
+l:300,
+r:400,
+m:500,
+s:600,
+b:700) {
+        .font-#{$name} {
+                font-weight: $weight;
+        }
+}
+
+
+
+/* @while */
+
+$i: 6;
+@while $i>0 {
+        .item-#{$i} {
+                width: 2em * $i;
+        }
+        $i: $i - 2;
+}
+
+
+
+/*  */
+
+@mixin large-text {
+        font: {
+                family: Arial;
+                size: 20px;
+                weight: bold;
+        }
+        color: #ff0000;
+}
+
+.ab {
+        @include large-text
+}
+
+
+
+
+
+
+/*  */
+
+@mixin sexy-border($color,
+$width) {
+        border: {
+                color: $color;
+                width: $width;
+                style: dashed;
+        }
+}
+
+p {
+        @include sexy-border(blue,
+        1in);
+}
+
+
+
+/*  */
+
+$wh:10px;
+@mixin wt($w:100px) {
+        @content;
+        width: $w;
+        height: $w;
+}
+
+.wpt {
+        @include wt {
+                line-height: $wh;
+        }
+}
+
+
+
+/*  
+
+#sidebar {
+  $sidebar-width: 300px;
+  width: $sidebar-width;
+  @include smartphone {
+    width: $sidebar-width / 3;
+  }
+}
+
+*/
+
+
+/*  */
+
+@mixin test2($size) {
+        @include wh(200 * $unit);
+        @if $size==yes {
+                color: red;
+                font-size: 12px;
+        }
+        @else if $size==no {
+                color: blue;
+                line-height: 100px;
+        }
+}
+
+.test1 {
+        @include test2(yes)
+}
+
+.test2 {
+        @include test2(no)
+}
+
+
+
+/*  clear fix */
+
+@mixin clearfix {
+        display: inline-block;
+        &:after {
+                content: ".";
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+        }
+        * html & {
+                height: 1px
+        }
+}
+
+.ac {
+        @include clearfix
+}
+
+
+
+/*一--1 像素线----*/
+
+@mixin line($line) {
+        position: relative;
+        @if $line==borderTop {
+                /* border-top */
+                &:after {
+                        content: " ";
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        right: 0;
+                        height: 1px;
+                        border-top: 1px solid rgba(0, 0, 0, 0.1);
+                        color: rgba(0, 0, 0, 0.1);
+                        -webkit-transform-origin: 0 0;
+                        transform-origin: 0 0;
+                        -webkit-transform: scaleY(0.5);
+                        transform: scaleY(0.5);
+                }
+        }
+        @else if $line==borderRight {
+                /* border-right */
+                &:after {
+                        content: " ";
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        width: 1px;
+                        bottom: 0;
+                        border-right: 1px solid rgba(0, 0, 0, 0.1);
+                        color: rgba(0, 0, 0, 0.1);
+                        -webkit-transform-origin: 100% 0;
+                        transform-origin: 100% 0;
+                        -webkit-transform: scaleX(0.5);
+                        transform: scaleX(0.5);
+                }
+        }
+        @else if $line==borderBottom {
+                /* border-bottom */
+                &:after {
+                        content: " ";
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                        height: 1px;
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                        color: rgba(0, 0, 0, 0.1);
+                        -webkit-transform-origin: 0 100%;
+                        transform-origin: 0 100%;
+                        -webkit-transform: scaleY(0.5);
+                        transform: scaleY(0.5);
+                }
+        }
+        @else if $line==borderLeft {
+                /* border-left */
+                &:after {
+                        content: " ";
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 1px;
+                        bottom: 0;
+                        border-left: 1px solid rgba(0, 0, 0, 0.1);
+                        color: rgba(0, 0, 0, 0.1);
+                        -webkit-transform-origin: 0 0;
+                        transform-origin: 0 0;
+                        -webkit-transform: scaleX(0.5);
+                        transform: scaleX(0.5);
+                }
+        }
+        @else if $line==border {
+                /* border */
+                &:after {
+                        content: " ";
+                        width: 200%;
+                        height: 200%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        border: 1px solid rgba(0, 0, 0, 0.1);
+                        -webkit-transform: scale(0.5);
+                        transform: scale(0.5);
+                        -webkit-transform-origin: 0 0;
+                        transform-origin: 0 0;
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                        border-radius: 1;
+                }
+        }
+}
+
+.wt {
+        @include line(borderTop)
+}
+
+
+
+/*  */
+
+@mixin transform($w) {
+        transform: translateX($w) translateY($w);
+}
+
+@mixin center($width: null,
+$height: null) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        /* 存在 width height */
+        @if $width and $height {
+                width: $width * $unit;
+                height: $height * $unit;
+                background: yellow;
+                /*FF IE7*/
+                position: fixed !important;
+                /*FF IE7 该值为本身宽的一半 */
+                margin-left: -($width / 2 * $unit) !important;
+                /*FF IE7 该值为本身高的一半*/
+                margin-top: -($height / 2 * $unit) !important;
+                margin-top: 0;
+                z-index: 10;
+        }
+
+        /* 没有高度 height */
+        @else if not $height {
+                width: $width * $unit;
+                background: pink;
+                @include transform(-50%);
+                z-index: 10;
+        }
+}
+
+.mo {
+        @include center(100,
+        100)
+}
+
+.mo2 {
+        @include center(200)
+}
+
+
+
+/* ---------test-------- */
+
+
+
+@mixin WPP($w: null, $h: null) {
+        @if $w and $h {
+                width: $w * $unit;
+                height: $h * $unit;
+        }
+
+        @else if not $h {
+                width: $w * $unit;
+                height: $w * $unit;
+        }
+}
+.test{
+@include WPP(100,2)
+}
+
+
+@mixin zhezhao {
+        & .aa {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                /* 存在 width height */
+                width: 10.6666666667rem;
+                background: pink;
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+                z-index: 2;
+        }
+        .bb {
+                background-color: #000;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                /*FF IE7*/
+                filter: alpha(opacity=20);
+                /*IE*/
+                opacity: 0.2;
+                /*FF*/
+                z-index: 1;
+                position: fixed!important;
+                /*FF IE7*/
+                position: absolute;
+                /*IE6*/
+        }
+}
+
+.zhezhao {
+        @include zhezhao
+}
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------- */
+
+@mixin transform($w) {
+        transform: translateX($w) translateY($w);
+}
+
+@mixin center($width: null,$height: null) {
+        &>.cont {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                /* 存在 width height */
+                @if $width and $height {
+                        width: $width * $unit;
+                        height: $height * $unit;
+                        background: yellow;
+                        /*FF IE7*/
+                        position: fixed !important;
+                        /*FF IE7 该值为本身宽的一半 */
+                        margin-left: -($width / 2 * $unit) !important;
+                        /*FF IE7 该值为本身高的一半*/
+                        margin-top: -($height / 2 * $unit) !important;
+                        margin-top: 0;
+                        z-index: 2;
+                }
+                /* 没有高度 height */
+                @else if not $height {
+                        width: $width * $unit;
+                        background: pink;
+                        @include transform(-50%);
+                        z-index: 2;
+                }
+        }
+        &>.mask {
+                background-color: rgba(0, 100, 100, 1);
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                /*FF IE7*/
+                z-index: 1;
+                position: fixed!important;
+                /*FF IE7*/
+                position: absolute;
+                /*IE6*/
+        }
+}
+
+.ceshi {
+        @include center(300,100)
+}
+
+
+
+/* ---------------------------- */
+
+
+/* 外壳 */
+
+.appContainer {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+}
+
+
+/* 顶部 */
+
+.appHeader {
+        width: 100%;
+        height: 50 * $unit;
+        background: red;
+}
+
+@mixin header($h) {
+        width: 100%;
+        height: $h * $unit;
+        background: red;
+}
+
+.appHeader1 {
+        @include header(50);
+}
+
+
+
+/* 内容 */
+
+.appContent {
+        flex: 1;
+        width: 100%;
+        overflow: scroll;
+        background: yellow;
+}
+
+
+/* 底部 */
+
+.appFooter {
+        width: 100%;
+        height: 50 * $unit;
+        background: green;
+}
+
+@mixin footer($h) {
+        width: 100%;
+        height: $h * $unit;
+        background: green;
+}
+
+.appFooter1 {
+        @include footer(50);
+}
+
+
+
+/* main */
+
+@mixin layout($appheadHeight,
+$appFooterHeight) {
+        .appContainer {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+
+
+                &>.appHeader {
+                        width: 100%;
+                        height: $appheadHeight * $unit;
+                        background: red;
+                }
+
+                &>.appContent {
+                        flex: 1;
+                        width: 100%;
+                        overflow: scroll;
+                        background: yellow;
+                }
+                &>.appFooter {
+                        width: 100%;
+                        height: $appFooterHeight * $unit;
+                        background: green;
+                }
+        }
+}
+
+#app> {
+        @include layout(20,
+        50)
+}
+
+
+
+/* 0727 */
+
+
+/* ! 
+  居中 (1、固定宽、高，2.自适应宽、高)
+*/
+
+@mixin transform($w) {
+        /* transform */
+        transform: translateX($w) translateY($w);
+}
+
+
+@mixin mask {
+        /* mask */
+        background-color: rgba(0, 100, 100, 1);
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        /*FF IE7*/
+        z-index: 1;
+        position: fixed!important;
+        /*FF IE7*/
+        position: absolute;
+        /*IE6*/
+}
+
+@mixin center($width: null,
+$height: null) {
+        &>.cont {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                /* 存在 width height */
+                @if $width and $height {
+                        width: $width * $unit;
+                        height: $height * $unit;
+                        background: #fff;
+                        /*FF IE7*/
+                        position: fixed !important;
+                        /*FF IE7 该值为本身宽的一半 */
+                        margin-left: -($width / 2 * $unit) !important;
+                        /*FF IE7 该值为本身高的一半*/
+                        margin-top: -($height / 2 * $unit) !important;
+                        margin-top: 0;
+                        z-index: 2;
+                }
+                /* 没有高度 height */
+                @else if not $height {
+                        width: $width * $unit;
+                        background: #fff;
+                        @include transform(-50%);
+                        z-index: 2;
+                }
+        }
+        &>.mask {
+                @include mask
+        }
+}
+
+
+/* 引用 */
+
+.oneMask {
+        @include center(100,
+        100)
+}
+
+
+
+
+
+
+
+.qw {
+        &>.wtn {
+                position: absolute;
+                bottom: 0;
+                background: red;
+                z-index: 2;
+                width: 100%;
+                height: 200px;
+        }
+        &>.mask3 {
+                @include mask
+        }
+}
+
+
+
+@mixin WPP($w: null,
+$h: null) {
+        @if $w and $h {
+                width: $w * $unit;
+                height: $h * $unit;
+        }
+
+        @else if not $h {
+                width: $w * $unit;
+                height: $w * $unit;
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 0803 */
+ @mixin fontWeight($weight) {
+  @if      $weight == u{
+    font-weight: 100;
+  }
+  @else if $weight == t{
+    font-weight: 200;
+  }
+  @else if $weight == l{
+    font-weight: 300;
+  }
+  @else if $weight == r{
+    font-weight: 400;
+  }
+  @else if $weight == m{
+    font-weight: 500;
+  }
+  @else if $weight == s{
+    font-weight: 600;
+  }
+}
+
+.wt{
+ @include fontWeight(t)
+ @include fontWeight(r)
+}
+
+
+ @mixin font($font-weight){
+  @if $font-weight == 'u'{
+    font-weight: 100;
+  }
+  @else if $font-weight == 't'{
+    font-weight: 200;
+  }
+}
+
+.rtt{
+    width: 100%;
+}
+
+.w{
+    @include font(t)
+    
+}
+
+.b{
+    @extend .w
+}
+
+
+
+
+
+
+/*  */
+
+$color: green;
+
+@mixin button($color: #fff) {  
+    color: $color;  
+    @content;  
+    border: 1px solid $color;  
+}
+
+.button-green {  
+    @include button {background: $color;}  
+}
+
+/*  */
+@mixin button {  
+    @content;  
+}
+
+@include button {  
+    .background-green1 {  
+        font-size: 1em;  
+        padding: 0.5em 1.0em;  
+        text-decoration: none;  
+        color: #fff;  
+        background: green;  
+    }
+};
+
+
+/*  1 */
+@mixin tt{
+    @content;
+}
+
+@include tt{
+    .font-size{
+        background: red;
+    }
+    .font-b{
+        width: 100%;
+    }
+    button{
+        background: red;
+    }
+    input{
+        background: #eee;
+    }
+    *{
+        margin:0;
+        padding:0;
+    }
+}
+
+/*  */
+
+
+@mixin button {  
+    font-size: 1em;  
+    padding: 0.5em 1.0em;  
+    text-decoration: none;  
+    color: #fff;  
+    @content;  
+}
+
+.button-green {  
+    @include button {  
+        background: green  
+    }
+}
+
+/*  */
+
+
+@mixin font(){
+    @each $name, $weight in (u,100)     /* 极细体 */
+                              (t,200)     /* 纤细体 */
+                              (l,300)     /* 细体   */
+                              (r,400)     /* 常规体 */
+                              (m,500)     /* 中黑体 */     
+                              (s,600)     /* 中粗体 */
+                              (b,700)     /* 粗体   */
+      {
+        .font-#{$name}{
+           font-weight: $weight;
+        }
+      }
+
+}
+
+@include font
+
+/*  */
+
+@mixin fl($height,$fontsize){
+    font-size: $fontsize * $unit;
+    line-height: $height/$fontsize;
+}
+.fl{
+    @include fl(40,28)
+}
+
+@mixin imgPadding_bottom($w,$h){
+    padding-bottom: ($h / $w )*100%;
+}
+.imgHeight{
+    @include imgPadding_bottom(100,200);
+}
+
+

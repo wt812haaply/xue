@@ -1,0 +1,56 @@
+/*
+* @Author: t
+* @Date:   2018-11-08 15:15:47
+* @Last Modified by:   t
+* @Last Modified time: 2018-12-12 20:13:51
+*/
+
+
+.dfy {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    /*2行*/
+    overflow: hidden;
+}
+
+
+
+body {
+    background: #fff;
+
+    flex-wrap: wrap;
+}
+
+.conT {
+    /* width: 100%; */
+    padding: 0 10px;
+    background: red;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.one1 {
+    color: #fff;
+    flex-shrink: 1;
+    width: 30px;
+    height: 30px;
+
+}
+.two1 {
+    width: 30px;
+    height: 30px;
+    background: green;
+    flex-shrink: 1;
+}
+
+.three1 {
+    flex: 1;
+    flex-shrink: 2;
+    padding-right: 10px;
+}
+
+.four1 {
+    flex-shrink: 2;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app">
+		<cont></cont>
+		<cont></cont>
+	</div>
+	<script type="text/javascript">
+		var cont={
+			template:"<div>11</div>"
+		}
+		var vm = new Vue({
+			el:'#app',
+			data:{
+
+			},
+			components:{
+				cont,
+			}
+		})
+	</script>
+</body>
+</html>

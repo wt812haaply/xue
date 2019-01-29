@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	
+
+
+
+	function People(name,age,gender,address){
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.address = address;
+	}
+	People.prototype.say = function(){
+		console.log(this.name)
+	}
+	var info1 = new People('孙悟空','30','男','花果山');
+	var info2 = new People('猪八戒','43','男','高老庄');
+	var info3 = new People('沙和尚','31','男','沙河');
+	var info4 = new People('蜘蛛精','23','女','山洞');
+
+	console.log('-----分割线-----')
+	console.log(info1);
+	console.log(info2);
+	console.log(info3);
+	console.log(info4);
+
+
+	var infoArry = [info1,info2,info3,info4];
+	console.log(infoArry);
+
+	function op(){
+
+
+	var arryNum = [];
+	for(var i=0;i<infoArry.length; i++){
+		// console.log(infoArry[i].age)
+		if(infoArry[i].age > 30){
+			console.log(infoArry[i].age)
+			arryNum.push(infoArry[i].age)
+		}
+	}
+	return arryNum;
+	}
+	// op(1);
+	var aa = op();
+	console.log(aa);
+
+	aa.push('1')
+	console.log(aa);
+
+
+
+
+
+
+	</script>
+</body>
+</html>

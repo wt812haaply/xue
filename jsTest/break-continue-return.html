@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id='btn'>点击运行</div>
+
+
+	<script type="text/javascript">
+
+
+		function fun(){
+			var a = 1;
+			var b = '1';
+			var result = '';
+			var ee = 2;
+
+
+			for(var i=0; i<5; i++){
+				if(i == 3){
+					console.log(i,'continue使用方法')
+					continue;
+				}
+			}
+
+			if( a + +b == 2){
+				switch(ee){
+					case 1:
+						result = '1111111';
+						break;
+					case 2:
+						result = '2222222';
+						break;	
+					default:
+						result='default 错误'	
+				}
+			} else{
+				result = 'else错误'
+			}
+
+			//return 返货15行定义的变量
+			return console.log(result);
+		} 
+		btn = document.getElementById('btn')
+		btn.onclick = ()=> fun();
+
+	</script>
+</body>
+</html>

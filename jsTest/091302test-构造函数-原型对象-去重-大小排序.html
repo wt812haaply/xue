@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	function Info(name,age,address,gender){
+		this.name = name;
+		this.age = age;
+		this.address = address;
+		this.gender = gender;
+	}
+	Info.prototype.sayName = function (){
+		console.log(this.name);
+	}
+	var people1 = new Info('张',15,'北京','男');
+	var people2 = new Info('王',17,'北京','男');
+	var people3 = new Info('李',21,'北京','男');
+	var people4 = new Info('赵',21,'北京','男');
+	var people5 = new Info('赵1',21,'北京','男');
+	var people6 = new Info('赵2',20,'北京','男');
+	var people7 = new Info('赵3',21,'北京','男');
+	var people8 = new Info('赵4',21,'北京','男');
+
+
+	var pp = [people1,people2,people3,people4,people5,people6,people7,people8];
+	console.log(pp);
+
+	function fun(arry){
+		var newArry = [];
+		for(var i = 0; i<pp.length; i++){
+			console.log(pp[i].age)
+			if(pp[i].age > 15){
+				// console.log(pp[i].age,'....');
+				newArry.push(pp[i].age)
+			}
+		}
+		return newArry;
+	}
+	var mm = fun(1);
+	console.log(mm);
+
+	console.log('----------');
+	for(var i = 0 ;i<mm.length; i++){
+		console.log(mm[i],'--->');
+		for(var j=i+1; j< mm.length; j++){
+			console.log(mm[j],'0000')
+			if(mm[i] == mm[j]){
+				mm.splice(j,1)
+				j--;
+			}
+		}
+	}
+	var new1 = mm;
+	console.log(new1);
+	function th(a,b){
+		return a-b;
+	}
+	var aa = th;
+	console.log(new1.sort(aa));
+
+
+
+	// people1.sayName();
+	// console.log(people1);
+	
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

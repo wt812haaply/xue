@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript">
+	window.onload =function()
+	{
+		var obtn=document.getElementById('btn1');
+		var oul=document.getElementById('ul1');
+
+		
+
+		obtn.onclick=function(){
+			var iStart = new Date().getTime();
+			var i=0;
+			for (i=0;i<10; i++) {
+				var oli=document.createElement('li');
+				oul.appendChild(oli);
+			}
+			alert(new Date().getTime()-iStart);
+		}
+
+	}
+</script>
+<body>
+<button id="btn1">按钮</button>
+<ul id="ul1">
+
+</ul>
+</body>
+</html>

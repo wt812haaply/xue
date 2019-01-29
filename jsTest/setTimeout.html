@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+
+
+	<script type="text/javascript">
+		/*
+		3秒打印
+		
+		var desc = '哈哈哈哈哈哈哈'
+		var num = 12;
+		if(num != ''){
+			setTimeout(()=>console.log(desc),1000)
+		} else{
+			setTimeout(()=>console.log('没有'),1000)
+		}
+		*/
+
+
+		/*
+		1秒打印一次
+		
+		for(let i=0;i<5;i++){
+			setTimeout(()=>console.log(i),1000*i)
+		}
+
+		for(var i=0;i<5;i++){
+			function aa(i){
+				setTimeout(()=>console.log(i),1000*i)
+			} 
+			aa(i);
+		}
+
+		for(var i=0;i<5;i++){
+			((i)=>
+				setTimeout(()=>console.log(i),1000*i)
+			)(i);
+		}
+
+
+		// 用return 当前函数 计算1秒打印一次
+		var a = 1;
+		function fa(){
+			if(a <=5 ){
+				((a)=>setTimeout(()=>console.log(a,'?'),a*1000))(a)
+				a++;
+				return fa()
+			}
+		} fa();
+
+		
+		*/
+
+
+		/*
+		匿名函数
+		function fun(){
+			console.log('匿名函数')
+		}
+		fun();
+
+		
+		(()=>console.log('匿名函数'))();
+		
+		*/
+
+		
+
+	</script>
+</body>
+</html>

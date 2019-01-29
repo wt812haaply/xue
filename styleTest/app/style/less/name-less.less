@@ -1,0 +1,245 @@
+@w: 1000px;
+
+body {
+    //width: @w; /*no*/
+    //height: 100px;
+    //width: @w; /*no*/
+    display: flex;
+
+}
+
+
+
+/* one two three */
+.one {
+    color: red;
+    font-size: 12px;
+}
+
+.two {
+    &:extend(.one);
+}
+
+.three {
+    &:extend(.two);
+}
+
+/* wt */
+@color: wt;
+
+.@{color} {
+    font-size: 12px;
+}
+
+// 
+@a1: green;
+@a2: blue;
+
+.section1 {
+    @color: a1;
+
+    .element2 {
+        color: @@color;
+    }
+}
+
+
+// 
+.a1,
+.a2 {
+    font-size: 12px;
+}
+
+.a3:extend(.a1, .a2) {
+    color: red;
+}
+
+/* */
+.qq {
+    font-size: 12px;
+    color: red;
+}
+
+.qqq {
+    &:extend(.qq);
+    background: red;
+    height: 100px;
+}
+
+// wddadasd
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.item {
+    float: left;
+    width: 100%;
+    height: auto;
+    padding: 0 10px;
+    border: 1px red solid;
+
+    ul.itemList {
+        margin-left: -2%;
+
+        li {
+            float: left;
+            width: 31.3333%;
+            margin: 0 0 2% 2%;
+            color: #3d3d3d;
+            background: red;
+
+        }
+    }
+}
+
+
+
+
+
+// less
+
+@yi23ColorC1: #333333;
+@yi23ColorC2: #FF544B;
+@yi23ColorC3: #FAFAFA;
+@yi23ColorC4: #EEEEEE;
+@yi23ColorC5: #AFAFAF;
+@yi23ColorC6: #DDDDDD;
+
+
+.color-c1 {
+    color: @yi23ColorC1;
+}
+
+.color-c2 {
+    color: @yi23ColorC2;
+}
+
+.color-c3 {
+    color: @yi23ColorC3;
+}
+
+.color-c4 {
+    color: @yi23ColorC4;
+}
+
+.color-c5 {
+    color: @yi23ColorC5;
+}
+
+.color-c6 {
+    color: @yi23ColorC6;
+}
+
+
+
+
+
+.mk {
+    background: @yi23ColorC1;
+}
+
+/* fontSzie */
+@unit: 1/18.75rem;
+
+.fontSize(@count )when(@count > 0) {
+    .font_@{count} {
+        font-size: 12px * @count ;
+    }
+
+    .fontSize((@count - 1));
+}
+
+.fontSize(2);
+
+
+
+.eee {
+    font-size: 13 * @unit;
+}
+
+.hha(@w, @h) {
+    padding-bottom: (@h / @w) * 100%;
+}
+
+.bbbb {
+    .hha(100, 200)
+}
+
+// /*1*/
+
+// .minix( @a )when(ispixel(@a)){
+//     background: yellow;
+//     pixel: @a;
+// }
+// .minix( @a )when(ispercentage(@a)){
+//     background: blue;
+//     percentage:@a
+// }
+
+
+
+// .class1{
+//     .minix(230px);
+// }
+// .class2{
+//     .minix(83%);
+// }
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.pay_tips_animation_up {
+    width: 100%;
+    height: 200px;
+    background: url('//yimg.yi23.net/webimg/web/images/activity/20181213/lotterMarqueeTo.png') ;
+    position: relative;
+    animation: myfirst 1s linear 1s infinite alternate;
+
+}
+
+@keyframes myfirst {
+    0% {
+        background: url('//yimg.yi23.net/webimg/web/images/activity/20181213/lotterMarqueeTo.png') ;
+        left: 0px;
+        top: 0px;
+    }
+
+    20% {
+        background: url('//yimg.yi23.net/webimg/web/images/activity/20181213/lotterMarqueeTo.png');
+        left: 0px;
+        top: 0px;
+    }
+
+    40% {
+        background: url('//yimg.yi23.net/webimg/web/images/activity/20181213/lotteryMarquee.png');
+        left: 0px;
+        top: 0px;
+    }
+
+    60% {
+        background: url('//yimg.yi23.net/webimg/web/images/activity/20181213/lotteryMarquee.png');
+        left: 0px;
+        top: 0px;
+    }
+
+    80% {
+        background: url('//yimg.yi23.net/webimg/web/images/activity/20181213/lotterMarqueeTo.png');
+        left: 0px;
+        top: 0px;
+    }
+
+    100% {
+		background: url('//yimg.yi23.net/webimg/web/images/activity/20181213/lotterMarqueeTo.png');
+        left: 0px;
+        top: 0px;
+    }
+}

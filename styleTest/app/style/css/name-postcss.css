@@ -1,0 +1,112 @@
+/*
+* @Author: t
+* @Date:   2018-08-21 14:02:28
+* @Last Modified by:   t
+* @Last Modified time: 2018-10-16 19:36:53
+*/
+
+/*
+* @Author: t
+* @Date:   2018-11-08 15:15:47
+* @Last Modified by:   t
+* @Last Modified time: 2018-12-12 20:13:51
+*/
+
+.dfy {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    /*2行*/
+    overflow: hidden;
+}
+
+body {
+    background: #fff;
+
+    flex-wrap: wrap;
+}
+
+.conT {
+    /* width: 100%; */
+    padding: 0 10px;
+    background: red;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.one1 {
+    color: #fff;
+    flex-shrink: 1;
+    width: 30px;
+    height: 30px;
+
+}
+
+.two1 {
+    width: 30px;
+    height: 30px;
+    background: green;
+    flex-shrink: 1;
+}
+
+.three1 {
+    flex: 1;
+    flex-shrink: 2;
+    padding-right: 10px;
+}
+
+.four1 {
+    flex-shrink: 2;
+}
+
+/* name-postcss content */
+
+.haa{
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px; */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* align-items: center; */
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.haa >div{
+    background: #eee;
+    width: 33.3333%;
+
+  }
+
+.itemTest{
+  width: 100%;
+  /* margin: 0 20px; */
+}
+
+.testone{
+  position: absolute;
+  top: 100px;
+  /* width: 100%; */
+  width: calc(100% - 30px);
+  background: blue;
+  height:calc(100% - 115px);
+  margin: 0 15px;
+    
+}
+
+.mol{
+  /* height:calc(100% - 115px); */
+  /* overflow-y: scroll; */
+}
+
+.nnn{
+  height: 1200px;
+  background: rgba(0, 0, 0, .1);
+  margin-bottom: 10px;
+}

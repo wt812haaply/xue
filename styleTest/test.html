@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用空白标签实现图片在容器里垂直居中</title>
+	<style type="text/css">
+.test1{
+	min-height:128px; 
+	max-height: 128px;
+	width:150px;
+	 float:left; 
+	 margin-right:10px; 
+	 border:1px solid #beceeb; 
+	 text-align:center; 
+	 font-size:0;
+	 overflow: hidden;
+	}
+.help_img{
+	height:100%;
+	width:1px;
+	display: inline-block; /*标签需转换为行内块元素*/
+ 	vertical-align:middle;
+   }
+.show_img{
+ 	vertical-align:middle;
+   }
+
+   img{
+   	width: 100%;
+   	margin: 0;
+   	padding: 0;
+   }
+	</style>
+</head>
+<body>
+
+
+<div class="test1">
+	<img src="http://img.sccnn.com/bimg/341/05733.jpg" alt="" class="show_img">
+	<span class="help_img" /></span>
+</div>
+
+<div class="test1">
+	<img src="http://img.sccnn.com/bimg/341/05734.jpg" alt="" class="show_img">
+	<span class="help_img" /></span>
+</div>
+
+
+<div class="test1">
+	<img src="http://img.sccnn.com/bimg/338/50105.jpg" alt="" class="show_img">
+	<span class="help_img" /></span>
+</div>
+
+
+
+<div class="test1">
+	<img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=756293657,1846362974&fm=27&gp=0.jpg" class="show_img" alt="" class="show_img">
+	<span class="help_img" /></span>
+</div>
+
+
+</body>
+</html>

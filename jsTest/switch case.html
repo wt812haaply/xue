@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+
+
+<script type="text/javascript">
+	function fu(){
+		var a=10;
+		var b=10;
+		var ab;
+		return function mn(ab){
+			switch(ab){
+				case 1:
+				console.log('1')
+				break;
+
+				case 2:
+				console.log('2')
+				break;
+
+				case 220:
+				console.log('3',"????")
+				break;
+
+				default:
+				console.log('no')
+			}
+		}
+	} fu()(220);
+
+
+	/*  if 语句只有一行代码，所以可以省略花括号  */
+	function fn(a){
+		/*
+		if(a==12){
+			console.log(a)
+		}
+		*/
+		if(a==12)console.log(a)
+	} fn(12)
+
+
+</script>
+</body>
+</html>

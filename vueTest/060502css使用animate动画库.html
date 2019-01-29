@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" type="text/css" href="animate.css">
+	<style type="text/css">
+
+
+/* 1 
+		@keyframes bounce-in{
+			0%{
+				transform: scale(0);
+			}
+			50%{
+				transform: scale(3);
+			}
+			100%{
+				transform: scale(1);
+			}
+		}
+		.yi23-enter-active{
+			transform-origin: left center;
+			animation: bounce-in 1s;
+		}
+
+		.yi23-leave-active{
+			transform-origin:  left center;
+			animation: bounce-in 1s reverse;
+		}
+*/
+
+/* 2 
+		@keyframes bounce-in{
+			0%{
+				transform: scale(0);
+			}
+			50%{
+				transform: scale(2);
+			}
+			100%{
+				transform: scale(1);
+			}
+		}
+
+		.active{
+			transform-origin: left center;
+			animation: bounce-in 1s;
+		}
+		.leave{
+			transform-origin: left center;
+			animation: bounce-in 1s reverse;
+		}
+*/
+
+
+	</style>
+</head>
+<body>
+	<div id="app">
+<!-- 1 
+		<transition name="yi23">
+			<div v-if="show">
+		{{content}}
+			</div>
+		</transition>
+		
+		
+		<transition name="yi23">
+			<what v-if="show"></what>
+		</transition>
+		<button @click="handle">按钮</button>
+-->
+		 
+<!-- 2 
+		<transition name="yi23" enter-active-class="active" leave-active-class="leave">
+			<div v-if="show">
+		{{content}}
+			</div>
+		</transition>
+		
+		
+		<transition name="yi23" enter-active-class="active" leave-active-class="leave">
+			<what v-if="show"></what>
+		</transition>
+		<button @click="handle">按钮</button>
+-->
+
+<!-- 3 -->
+		<transition 
+			name="yi23" 
+			enter-active-class="animated bounceInDown" 
+			leave-active-class="animated bounceInLeft">
+			<div v-if="show">
+			{{content}}
+			</div>
+		</transition>
+		
+		
+		<transition 
+			name="yi23" 
+			enter-active-class="animated slideOutUp" 
+			leave-active-class="animated slideOutDown">
+			<what v-if="show"></what>
+		</transition>
+		<button @click="handle">按钮</button>
+
+		 
+	</div>
+
+	<script type="text/javascript">
+		var what = {
+			template:"<div>2222</div>"
+		}
+
+		var vm=new Vue({
+			el:"#app",
+			data:{
+				content:'11111',
+				show:true
+			},
+			methods:{
+				handle:function(){
+					this.show = !this.show
+				}
+			},
+			components:{
+				what,
+			}
+		})
+	</script>
+</body>
+</html>

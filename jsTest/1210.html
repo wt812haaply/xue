@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<title>setInterval/clearInterval example</title>
+<script type="text/javascript">
+var timeoutID;
+
+function delayedAlert() {
+  timeoutID = setTimeout('slowAlert()', 500);
+}
+
+function slowAlert() {
+  console.log('That was really slow!');
+}
+
+function clearAlert() {
+  window.clearTimeout('timeoutID');
+}
+
+
+</script>
+</head>
+ 
+<body>
+	<div></div>
+	<p>Live Example</p>
+<button onclick="delayedAlert();">Show an alert box after two seconds</button>
+<p></p>
+<button onclick="clearAlert();">Cancel alert before it happens</button>
+</body>
+</html>

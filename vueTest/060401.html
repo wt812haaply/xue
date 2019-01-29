@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" type="text/css" href="animate.css">
+	<style type="text/css">
+
+		.yi23-enter{
+			opacity: 0;
+		}
+
+		.yi23-enter-active{
+			transition: opacity 2s;
+		}
+
+		.yi23-leave-to{
+			opacity: 0;
+		}
+		.yi23-leave-active{
+			transition: opacity 3s
+		}
+	</style>
+</head>
+<body>
+
+	<div id="app">
+
+		<transition name="yi23">
+			<what v-if="show">
+				
+			</what>
+		</transition>
+
+		<transition name="yi23">
+		<div v-if="show">
+			 {{content}}
+		</div>
+		</transition>
+
+		<button @click="handle">按钮</button>
+	</div>
+	<script type="text/javascript">
+
+		Vue.component("what",{
+			template:"<div>{{cont.a}}  {{cont.b}}</div>",
+			data:function(){
+				return {
+					cont:{
+						a:'22222',
+						b:'333333'
+					}
+				}
+			}
+		})
+
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				content:'11111111',
+				show:true,
+			},
+			methods:{
+				handle:function(){
+					this.show = !this.show
+				}
+			}
+		})
+	</script>
+</body>
+</html>

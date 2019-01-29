@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+
+	var num = [];
+	for(var i=0; i<20; i++){
+		num.push(Math.ceil(Math.random(i)*10))
+	}
+
+	// console.log(num);
+
+
+	var newNum = [];
+	for(var a=0; a<num.length; a++){
+		newNum.push(num[a])
+		for(var b=a+1;b<num.length; b++){
+			if(num[a] == num[b]){
+				num.splice(b,1)
+				b--;
+			}
+		}
+	}
+	console.log(newNum,'/');
+	function fun(a,b){
+		return a-b
+	}
+	var bb = fun;
+	var abc = newNum.sort(bb)
+	console.log(abc);
+
+
+
+
+
+	</script>
+</body>
+</html>

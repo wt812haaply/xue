@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function one(){
+			// console.log(this)
+			console.log('aaa');
+			function two(){
+				console.log('bbb')
+				console.log(this)
+			}
+			two();
+		}
+		one()
+		// console.log(one)
+
+		function three(){
+			console.log('3333')
+			function two(){
+				console.log('bbb')
+				console.log(this)
+			}
+			two();
+		}
+		three();
+
+
+		console.log("////////")
+		var obj = {
+			name:'姓名',
+			say:three
+		}
+
+		obj.say();
+
+
+
+	</script>
+</body>
+</html>

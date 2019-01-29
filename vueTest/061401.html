@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+        <div id="app">
+                <p>Original message: "{{ message }}"</p>
+                <p>Computed reversed message: "{{ reversedMessage }}"</p>
+
+                <p @click="clickHello">Computed reversed message: "{{ hahMsg }}" </p>
+        </div>
+        <script type="text/javascript">
+        var vm = new Vue({
+                el: "#app",
+                data: {
+                        content: '111',
+                        message: 'hello',
+                        _abc: null,
+                        hahMsg:'hello'
+                },
+                computed: {
+                        reversedMessage: function() {
+                               return this.message.split('').reverse().join('')
+                        }
+                },
+                methods: {
+                      clickHello:function(){
+                      	// console.log(this.message.split('').reverse().join(''))
+                      	// this.hahMsg = this.message.split('').reverse().join('')
+                      	if(this.hahMsg){
+                      		this.hahMsg = this.hahMsg.split('').reverse().join('')
+                      	}
+                      }
+                },
+        })
+        </script>
+</body>
+
+</html>

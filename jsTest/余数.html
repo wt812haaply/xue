@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>余数</title>
+	<script type="text/javascript">
+		// 余数  取模。
+		// var a= 10;
+		// alert(a%3)
+
+
+		// 用余数做隔行变色
+		window.onload= function()
+		{
+			var oul=document.getElementById('ul1');
+			var oli=oul.getElementsByTagName('li');
+
+
+			for (i= 0; i<oli.length; i++) 
+			{
+				if (i%2!=0)
+				 {
+				 	oli[i].style.background="red";
+				 }
+			}
+		}
+
+
+
+		// 用余数算几分几秒
+		// var a=100;
+		// alert(parseInt(a/60)+"分"+parseInt(a%60)+"秒")
+
+	</script>
+</head>
+<body>
+	<ul id="ul1">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

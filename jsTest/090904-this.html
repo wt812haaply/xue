@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var name = '全局定义的名字-->孙悟空'
+		// 1
+		function one(){
+			// this 调用方式的不同显示的属性值不一样
+			// 如下:
+			// 1、以one()函数形式调用this，this是 windows全局下name的属性 ‘孙悟空’
+			// 2、以obj.sayHello()方法形式调用this是 obj.name的属性’猪八戒‘
+			console.log(this.name)
+		}
+		// 这个是 one 函数
+		one();
+
+
+		// 2
+		var obj = {
+			name:'猪八戒',
+			age:'18',
+			sayHello:one
+		}
+		// 这个是obj.sayHello 方法
+		obj.sayHello();
+	</script>
+</body>
+</html>

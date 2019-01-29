@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document11</title>
+</head>
+<body>
+	<div></div>
+	<script type="text/javascript">
+	
+	/*
+	function fn(){
+	 	return function (){
+		 	for(var i=0;i<10;i++){
+				if(i==5){
+					continue;
+				}
+				console.log(i)
+			}
+		}
+	} fn()();
+	*/
+
+	console.log('??????-----??????')
+	
+	var i=1;      //定义循环变量
+     function func1(){
+         i++;       //改变循环变量
+         if(i<5){　　　　　　　　//小括号为循环条件
+             document.write(i+'<br>');      //这里是循环体
+             console.log(i)
+             return func1();
+         }                 
+     }
+     func1(); 
+
+
+	console.log('??????-----??????')
+
+
+	
+	var bb = function fa(a,b){
+		return a+b
+	}
+	var ab = bb(2,12);
+	console.log(ab,'?0');
+
+
+
+
+
+
+
+
+	
+	</script>
+</body>
+</html>

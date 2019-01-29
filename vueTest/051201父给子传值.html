@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>0512父给子传值</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="" name="" v-model="msg">
+		<button @click="btnClick()">按钮</button>
+		<ul>
+			<!-- <li  v-for="item in list">{{item}}</li> -->
+			<do-list :content="item" v-for="item in list"></do-list>
+		</ul>
+
+
+	</div>
+	<script type="text/javascript">
+		//方法1: 全局定义子组件
+		// Vue.component("doList",{
+		// 	props:['content'],
+		// 	template:"<li>{{content}}</li>"
+		// })
+
+		//方法2: 局部定义子组件
+		var doList = {
+			props:['content'],
+			template:"<li>{{content}}</li>"
+		}
+
+		var app = new Vue({
+			el:'#app',
+			data:{
+				msg:'',
+				list:[],
+			},
+
+			//局部组件注册的 子组件
+			components:{
+				doList:doList,
+			},
+			methods:{
+				btnClick:function(){
+					this.list.push(this.msg);
+					this.msg = '';
+				}
+			}
+		})
+	</script>
+</body>
+</html>

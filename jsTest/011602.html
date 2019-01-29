@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+#div1{
+	border: 1px red solid;
+	width: 400px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	margin: 0 auto;
+	cursor: pointer;
+}
+#div2{
+
+}
+
+</style>
+<body>
+	<div id="div1">10</div>
+	<script type="text/javascript">
+		var odiv=document.getElementById("div1");
+		var txt = +odiv.childNodes[0].nodeValue
+		console.log(typeof txt)
+		var num = typeof txt === 'number' && isFinite(txt)
+		if(num){
+			console.log('数字')
+			odiv.onclick=function()
+			{
+				var i = 0;
+				return function f1(){
+					i++;
+					odiv.innerHTML=i;
+				} 
+			}()
+		} else{
+			console.log('不是数字')
+			var bb = '不是数字'
+			odiv.innerHTML = bb;
+		}
+			
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<title>051101ToDoList</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+	<p> 默认数据 => ：{{ Amsg}} </p>
+	<div>join后的数据=> ：{{ mm }}</div>
+	<p @click="clickp">点击split转换成数组</p>
+
+	<ul>
+		<li v-for="item in ppp"> {{ item }}</li>
+	</ul>
+
+	<!--  -->
+	<p>computed=> ：后的数据格式</p>
+	<ul>
+	    <li v-for="item in oo">{{ item }}</li>
+	</ul>
+
+</div>
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#app',
+		data:{
+			Amsg:'大摆型,修身,绑带,V领,无袖,齐地,设计感,新品',
+			ppp:[''],
+		},
+		methods:{
+			clickp(){
+				this.ppp = this.Amsg.split(',')
+				console.log(this.ppp)
+			}
+		},
+		computed:{
+			mm(){
+				return this.Amsg.split(',').join(' + ')
+			},
+			oo(){
+				return this.Amsg.split(',')
+			}
+		}
+	})
+</script>
+</body>
+</html>
+
+
+
+

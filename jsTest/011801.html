@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script type="text/javascript">
+    
+
+    (function fun() {
+            for(var i=0;i<10;i++){
+                console.log(i)
+                if(i==3){
+                    console.log(i,'if的')
+                    return 
+                }
+                function nm(a,b){
+                    console.log(a+b,'?!')
+                } nm(10,20)
+            }
+        })();
+     
+
+     console.log('----------')
+
+     
+     function fun() {
+            for(var i=0;i<10;i++){
+                console.log(i)
+                if(i==3){
+                    console.log(i,'if的')
+                    return 
+                }
+                function nm(a,b){
+                    console.log(a+b,'?!')
+                } nm(10,20)
+            }
+        } fun();
+
+    </script>
+</body>
+
+</html>

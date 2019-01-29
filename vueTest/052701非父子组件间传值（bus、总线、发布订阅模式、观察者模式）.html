@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>非父子组件间传值（bus、总线、发布订阅模式、观察者模式）</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+
+	<div id="app">
+		<list-Con conts="one"></list-Con>
+		<div is="listCon" conts="two"></div>
+	</div>
+	<script type="text/javascript">
+		Vue.prototype.bus = new Vue()
+
+		var listCon = {
+			data:function(){
+				return {
+					isconts: this.conts,
+				}
+			},
+			props:{
+				conts:String,
+			},
+			template:'<div @click="handle">{{isconts}}</div>',
+			methods:{
+				handle:function(){
+					this.bus.$emit("change",this.isconts)
+				}
+			},
+			mounted:function(){
+				var _this = this
+				this.bus.$on('change',function(msg){
+					_this.isconts = msg
+				})
+			}
+		}
+		
+
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				total:3,
+			},
+			components:{
+				listCon,
+			},
+			methods:{
+				
+			}
+		})
+	</script>
+</body>
+</html>

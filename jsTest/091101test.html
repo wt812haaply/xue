@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		console.log('//////工厂方法//////')
+
+		function one(name,age,address){
+				var obj = new Object();
+				obj.name=name;
+				obj.age = age;
+				obj.address = address;
+				obj.say = function(){
+					console.log(this.name)
+				}
+				return obj;
+		}
+	var aa = one(1,2,3);
+	var bb = one(11,22,33);
+	console.log(aa);
+	console.log(bb);
+	aa.say();
+	bb.say();
+
+
+	console.log('/////构造函数//////')
+
+	function Two(name,age,address){
+		this.name = name;
+		this.age = age;
+		this.address = address;
+		this.say = fun;
+	}
+
+	function fun(){
+		console.log(this.name)
+	}
+
+	var mm = new Two(3,4,5);
+	var nn = new Two(33,44,55);
+	mm.say();
+	nn.say();
+	console.log(mm);
+	console.log(nn);
+
+	// 检测nn是不是Two构造的实例
+	console.log( nn instanceof Two);
+
+
+
+	console.log('/////原型//////')
+
+	function Three(name,age,address){
+		this.name = name;
+		this.age = age;
+		this.address = address;
+	}
+
+	Three.prototype.say = function(){
+		console.log(this.name)
+	}
+
+	var mm = new Three(111,222,333);
+	console.log(mm);
+	mm.say();
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+#div1, div,input{
+	border: 1px red solid;
+	width: 500px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	cursor: pointer
+}
+</style>
+<body>
+
+<div id="div1">0</div>
+
+<input type="" value="" id="div1" name="">
+		<script type="text/javascript">
+			window.onload = function(){
+				var odiv=document.getElementById("div1");
+				odiv.onclick=(function(){
+					var i=0;
+					return function(){ 
+						i++; 
+						if(i > 10){
+							console.log('10')
+						}
+						odiv.innerHTML=i;
+					}
+				}) ()
+			}
+
+		</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+
+<script type="text/javascript">
+
+// window.onload=function(){
+// 	var num = '11234253tyw'
+// 	var mm = document.getElementById('txt').innerHTML = num.fontcolor('#ff544b');
+// 	console.log(mm)
+	
+// }
+
+
+
+var enCode="http://yi23.net/home/?brandId=13456&usrId=1111"
+
+var href = "http://yi23.net/"
+var parameter1 = `brandId=1111`
+var parameter2 = `userId=2222`
+
+var enCodeParameter1 = encodeURIComponent(parameter1)
+
+var webSzie = href + '?' + enCodeParameter1 +'&'+ parameter2
+console.log(webSzie,'000000')
+
+
+
+
+var deCode = encodeURIComponent(enCode)
+console.log(deCode,'---0---')
+
+console.log(decodeURIComponent(deCode),'-----1-----')
+
+
+
+var web = location.hash
+console.log(escape(web),'/')
+
+
+
+var a = [];
+for (var i = 0; i < 10; i++) {
+  a[i] = function () {
+    console.log(i);
+  };
+}
+a[6](); // 10
+
+
+</script>
+
+</head>
+<body>
+
+	<button onclick="show_popup()">Create pop-up!</button>
+
+
+	
+	<div>东方闪电水电费<i id="txt"></i></div>
+	<p>body 部分中的脚本调用一个函数。</p>
+	<p>该函数返回一段文本。</p>
+</body>
+</html>

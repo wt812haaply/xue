@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>0502</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		function fn(){
+			var n=12,
+				b=11,
+				c=n+b;
+			console.log(c);
+			return function ()
+			{
+				console.log(c);
+			}
+		}
+		var f=fn();
+		f();
+	</script>
+</body>
+</html>

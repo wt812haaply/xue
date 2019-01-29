@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <title>CSS3和HTML5图片加工前后对比代码 - xw素材网</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+<style type="text/css">
+
+
+.bbb {
+        
+        width: 210px;
+        height: 280px;
+        background: red;
+}
+
+
+
+.ccc, .ccc img {
+        position:relative;
+        left: 50%;
+        top: 50%;
+        overflow: hidden;
+        width: 216px;
+        height: 274px;
+		transform: translateX(-50%) translateY(-50%);
+		z-index:9999;
+}
+ .ccc img {
+        width: auto;
+        height: 100%;
+}
+</style>
+
+
+<body>
+        <div class="aaa">
+                
+        </div>
+
+
+        <div class="bbb">
+                        <div class="ccc">
+                                <img src="http://tu.yi23.net/feedbackImgs/2888196/15217034767010.jpg!840" alt="">
+                        </div>
+                </div>
+
+
+
+                <div class="bbb">
+                        <div class="ccc">
+                                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2542348311,2812472714&fm=26&gp=0.jpg" alt="">
+                        </div>
+                </div>
+                <div class="bbb">
+                        <div class="ccc">
+                                <img src="http://img4.imgtn.bdimg.com/it/u=4023675522,215770384&fm=26&gp=0.jpg" alt="">
+                        </div>
+                </div>
+</body>
+
+</html>

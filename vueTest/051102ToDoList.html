@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<title>051101ToDoList11111</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+
+	<input type="" name="" v-model="msg">
+	<button @click="btnClick()">按钮111</button>
+	<ul>
+		<li v-for="item in list">{{item}}</li>
+	</ul>
+
+
+
+	<hr>
+	<p @click="clickp">点击</p>
+	<ul>
+		<li v-for="item in ppp"> {{ item }}</li>
+	</ul>
+	<div>{{ mm }}</div>
+
+<ul>
+    <li v-for="item in mm"> {{ item }}</li>
+</ul>
+</div>
+<script type="text/javascript">
+	var app = new Vue({
+		el:'#app',
+		data:{
+			list:[''],
+			msg:'',
+			Amsg:'费大幅度发, dfdfdf, ; ; ,wewewewewewewe;',
+			ppp:'',
+		},
+		methods:{
+			// btnClick:function(){
+			// 	if(this.msg != '' && this.msg.length < 5){
+			// 		this.list.push(this.msg);
+			// 		this.msg='';
+			// 	}
+			// 	else{
+			// 		console.log('请输入内容')
+			// 	}
+			// }
+
+
+
+			btnClick:function(){
+				if(this.msg != ''){
+					if(this.msg.length < 5){
+						console.log("33")
+					}
+					this.list.unshift(this.msg)
+					console.log(this.msg.length)
+					this.msg = ''
+				}
+				else{
+					console.log('内容为空,请输入内容')
+				}
+			},
+
+
+			clickp(){
+				this.ppp = this.Amsg.split(',')
+				console.log(this.ppp)
+			}
+
+		
+		},
+		computed:{
+			mm(){
+				return this.Amsg.split(',').join('/')
+			}
+		}
+	})
+</script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+	#div1{
+		width: 100px; height: 100px; background: red;
+	}
+</style>
+
+<script type="text/javascript">
+
+	function getStyle(obj,attr)
+	{	
+		if(obj.currentStyle)
+		{
+			return obj.currentStyle[arrt];
+		}
+		else
+		{
+			return getComputedStyle(obj, false)[attr];
+		}
+	}
+
+
+	function css(obj,attr,value)
+	{	
+		if(arguments.length==2)
+		{
+			return getStyle(obj,attr);
+		}
+		else if(arguments.length==3)
+		{
+			obj.style[attr]=value;
+		}
+	
+	}
+
+	window.onload = function ()
+	{
+		odiv=document.getElementById('div1');
+		obtn=document.getElementById('btn1');
+
+		obtn.onclick=function()
+		{
+			// css(odiv,'background','blue');
+			alert(css(odiv,'width'));
+		}
+
+	}
+</script>
+</head>
+<body>
+	<button id="btn1">按钮</button>
+	<div id="div1"></div>
+</body>
+</html>

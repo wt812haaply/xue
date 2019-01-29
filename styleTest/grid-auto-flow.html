@@ -1,0 +1,47 @@
+<!doctype html>
+<title>Example</title>
+<style>
+#grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 2px;
+}
+#grid > div {
+  background-color: tomato;
+  font-size: 4vw;
+  padding: 10px;
+  width: 20vw;
+  width: auto;
+}
+#grid > div.wide1 {
+  /* width: 40vw; */
+  /* grid-column-end: span 2; */
+  grid-column: 2/5;
+  /* grid-row:1 ; */
+  }
+
+  #grid > div.wide2 {
+  /* width: 40vw; */
+  /* grid-column-end: span 2; */
+  grid-row: 2;
+  grid-column: 1/5;
+  }
+  .mm{
+  	grid-row: 3/5;
+  	grid-column: 4;
+  	background: red;
+	color: red;
+  }
+</style>
+<div id="grid">
+  <div>1</div>
+  <div class="wide1">2</div>
+  <div class="wide2">3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div class="mm">7</div>
+  <div>8</div>
+  <div>9</div>
+  <div>10</div>
+</div>

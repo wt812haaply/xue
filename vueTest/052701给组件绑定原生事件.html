@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>给组件绑定原生事件</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+
+	<div id="app">
+		<what @click.native="handleClick" ref="wo"></what>
+	</div>
+	<script type="text/javascript">
+		Vue.component("what",{
+			template:"<div>{{cont}}</div>",
+			props:{
+				cont:{
+					// type:[String,Number],
+					type:String,
+					default:'hello word',
+					// require:true,
+					// validator:function(value) {
+					// 	return value.length > 5
+					// }
+				}
+			},
+			data:function(){
+				return{
+					// wb:this.cont,
+				}
+			},
+			methods:{
+				handle:function(){
+					// console.log(this.cont)
+					// this.$emit("wo")
+				}
+			}
+		})
+		
+
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				total:3,
+			},
+			components:{
+				// what,
+			},
+			methods:{
+				handleClick:function(){
+					console.log(this.$refs.wo.cont + '1')
+				}
+			}
+		})
+	</script>
+</body>
+</html>

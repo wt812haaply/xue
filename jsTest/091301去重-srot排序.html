@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arry = [1,2,2,2,2,2,2,2,3,3,44,4,4,4,4,4,4,4,5,4,0]
+		console.log(arry);
+		console.log('/////')
+
+		//去重
+		for(var i=0; i<arry.length; i++){
+			console.log(arry[i],'+++++')
+			for(var j=i+1; j<arry.length; j++){
+				console.log(arry[j],'/////');
+				if(arry[i] == arry[j]){
+					console.log(arry[j],'--------');
+					arry.splice(j,1)
+					j--
+				}
+			}
+		}
+
+		// 排序 从小到大
+		function fun(a,b){
+			return a-b;
+			//从大到小
+			//return b-a;
+		}
+		var pop = fun;
+		console.log(arry.sort(pop))
+	</script>
+</body>
+</html>

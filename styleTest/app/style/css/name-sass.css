@@ -1,0 +1,631 @@
+@charset "UTF-8";
+/*
+
+@include 
+@mixin
+@exted
+@if @else if @else{}
+@for $i from …… through ……{}
+@each $i in one,two, three, four{}
+
+1.操作符优先级
+括号中的操作具有最高优先级
+乘法、除法的优先级高于加法和减法
+
+2.逻辑操作符
+and    x and y 与操作
+or     x or y  或操作
+not    not x   取反
+
+---------- 1
+%mr{
+   margin-right:10px;
+}
+
+body{
+    @extend %mr;
+}
+------------2
+*/
+* {
+  margin: 0;
+  border: 0;
+  padding: 0; }
+
+/*  */
+.et {
+  margin-top: 1px;
+  margin-right: 1px;
+  margin-bottom: 1px;
+  margin-left: 1px; }
+
+/* @if @else */
+p {
+  background: blue; }
+
+/* @extend 继承 */
+.class1, .class2 {
+  width: 500px;
+  border: 1px red solid; }
+
+.class2 {
+  font-size: 12px; }
+
+/* @mixin 配合 @inclued 可以重用的代码块 */
+.et {
+  width: 100px;
+  height: 100px;
+  font-size: 12px; }
+
+/*  传参数 */
+.ett {
+  margin: 100px; }
+
+/* @if else */
+.wt1 {
+  font-size: 12px; }
+
+/* @mixin @if @else */
+.test1 {
+  color: red; }
+
+/* @mixin @if @else */
+.test1 {
+  width: 10.6666666667rem;
+  height: 10.6666666667rem;
+  color: red;
+  font-size: 12px; }
+
+.test2 {
+  width: 10.6666666667rem;
+  height: 10.6666666667rem;
+  color: blue;
+  line-height: 100px; }
+
+/* 
+ @for $i from start through end 
+ （for）循环 i 从 …… 到 ……
+*/
+.test-1 {
+  /* width: 100/4 * $i + %; */
+  width: 100%; }
+
+.test-2 {
+  /* width: 100/4 * $i + %; */
+  width: 200%; }
+
+.test-3 {
+  /* width: 100/4 * $i + %; */
+  width: 300%; }
+
+.test-4 {
+  /* width: 100/4 * $i + %; */
+  width: 400%; }
+
+/* 
+    each 1
+ */
+.btn {
+  border-top: 150px;
+  border-right: 150px;
+  border-bottom: 150px;
+  border-left: 150px; }
+
+/* each 22 */
+.one-fb {
+  background: url("/img/one.png"); }
+
+.two-fb {
+  background: url("/img/two.png"); }
+
+.three-fb {
+  background: url("/img/three.png"); }
+
+.four-fb {
+  background: url("/img/four.png"); }
+
+/* 同上111 */
+.one-avatar {
+  background-image: url("/img/one.png"); }
+
+.two-avatar {
+  background-image: url("/img/two.png"); }
+
+.three-avatar {
+  background-image: url("/img/three.png"); }
+
+.four-avatar {
+  background-image: url("/img/four.png"); }
+
+.child-with-known-width {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  margin-left: -200px;
+  transform: translateY(-50%); }
+
+.child-with-known-height {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 400px;
+  margin-top: -200px;
+  transform: translateX(-50%); }
+
+.child-with-known-dimensions {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin: -200px 0 0 -200px; }
+
+/*  */
+.font-1 {
+  font-weight: 100; }
+
+.font-2 {
+  font-weight: 200; }
+
+.font-3 {
+  font-weight: 300; }
+
+.font-4 {
+  font-weight: 400; }
+
+.font-5 {
+  font-weight: 500; }
+
+.font-6 {
+  font-weight: 600; }
+
+.font-7 {
+  font-weight: 700; }
+
+.font-8 {
+  font-weight: 800; }
+
+.font-9 {
+  font-weight: 900; }
+
+.font-1 {
+  font-weight: 100; }
+
+.font-3 {
+  font-weight: 300; }
+
+.font-5 {
+  font-weight: 500; }
+
+.font-7 {
+  font-weight: 700; }
+
+.font-9 {
+  font-weight: 900; }
+
+/*  */
+p {
+  font: 12px / 30px; }
+
+/*  */
+.wta:hover {
+  color: red; }
+
+/* PingFang SC font-weight    @each in …… */
+.font-u {
+  font-weight: 100; }
+
+.font-t {
+  font-weight: 200; }
+
+.font-l {
+  font-weight: 300; }
+
+.font-r {
+  font-weight: 400; }
+
+.font-m {
+  font-weight: 500; }
+
+.font-s {
+  font-weight: 600; }
+
+.font-b {
+  font-weight: 700; }
+
+/*  @each in …… 同上 */
+.font-u {
+  font-weight: 100; }
+
+.font-t {
+  font-weight: 200; }
+
+.font-l {
+  font-weight: 300; }
+
+.font-r {
+  font-weight: 400; }
+
+.font-m {
+  font-weight: 500; }
+
+.font-s {
+  font-weight: 600; }
+
+.font-b {
+  font-weight: 700; }
+
+/* @while */
+.item-6 {
+  width: 12em; }
+
+.item-4 {
+  width: 8em; }
+
+.item-2 {
+  width: 4em; }
+
+/*  */
+.ab {
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff0000; }
+
+/*  */
+p {
+  border-color: blue;
+  border-width: 1in;
+  border-style: dashed; }
+
+/*  */
+.wpt {
+  line-height: 10px;
+  width: 100px;
+  height: 100px; }
+
+/*  
+
+#sidebar {
+  $sidebar-width: 300px;
+  width: $sidebar-width;
+  @include smartphone {
+    width: $sidebar-width / 3;
+  }
+}
+
+*/
+/*  */
+.test1 {
+  width: 10.6666666667rem;
+  height: 10.6666666667rem;
+  color: red;
+  font-size: 12px; }
+
+.test2 {
+  width: 10.6666666667rem;
+  height: 10.6666666667rem;
+  color: blue;
+  line-height: 100px; }
+
+/*  clear fix */
+.ac {
+  display: inline-block; }
+  .ac:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .ac {
+    height: 1px; }
+
+/*一--1 像素线----*/
+.wt {
+  position: relative;
+  /* border-top */ }
+  .wt:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.1);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5); }
+
+/*  */
+.mo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 存在 width height */
+  width: 5.3333333333rem;
+  height: 5.3333333333rem;
+  background: yellow;
+  /*FF IE7*/
+  position: fixed !important;
+  /*FF IE7 该值为本身宽的一半 */
+  margin-left: -2.6666666667rem !important;
+  /*FF IE7 该值为本身高的一半*/
+  margin-top: -2.6666666667rem !important;
+  margin-top: 0;
+  z-index: 10; }
+
+.mo2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 存在 width height */
+  width: 10.6666666667rem;
+  background: pink;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 10; }
+
+/* ---------test-------- */
+.test {
+  width: 5.3333333333rem;
+  height: 0.1066666667rem; }
+
+.zhezhao .aa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 存在 width height */
+  width: 10.6666666667rem;
+  background: pink;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 2; }
+
+.zhezhao .bb {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  /*FF IE7*/
+  filter: alpha(opacity=20);
+  /*IE*/
+  opacity: 0.2;
+  /*FF*/
+  z-index: 1;
+  position: fixed !important;
+  /*FF IE7*/
+  position: absolute;
+  /*IE6*/ }
+
+/* -------------------------------- */
+.ceshi > .cont {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 存在 width height */
+  width: 16rem;
+  height: 5.3333333333rem;
+  background: yellow;
+  /*FF IE7*/
+  position: fixed !important;
+  /*FF IE7 该值为本身宽的一半 */
+  margin-left: -8rem !important;
+  /*FF IE7 该值为本身高的一半*/
+  margin-top: -2.6666666667rem !important;
+  margin-top: 0;
+  z-index: 2; }
+
+.ceshi > .mask {
+  background-color: #006464;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  /*FF IE7*/
+  z-index: 1;
+  position: fixed !important;
+  /*FF IE7*/
+  position: absolute;
+  /*IE6*/ }
+
+/* ---------------------------- */
+/* 外壳 */
+.appContainer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  height: 100%; }
+
+/* 顶部 */
+.appHeader {
+  width: 100%;
+  height: 2.6666666667rem;
+  background: red; }
+
+.appHeader1 {
+  width: 100%;
+  height: 2.6666666667rem;
+  background: red; }
+
+/* 内容 */
+.appContent {
+  -ms-flex: 1;
+      flex: 1;
+  width: 100%;
+  overflow: scroll;
+  background: yellow; }
+
+/* 底部 */
+.appFooter {
+  width: 100%;
+  height: 2.6666666667rem;
+  background: green; }
+
+.appFooter1 {
+  width: 100%;
+  height: 2.6666666667rem;
+  background: green; }
+
+/* main */
+#app > .appContainer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  height: 100%; }
+  #app > .appContainer > .appHeader {
+    width: 100%;
+    height: 1.0666666667rem;
+    background: red; }
+  #app > .appContainer > .appContent {
+    -ms-flex: 1;
+        flex: 1;
+    width: 100%;
+    overflow: scroll;
+    background: yellow; }
+  #app > .appContainer > .appFooter {
+    width: 100%;
+    height: 2.6666666667rem;
+    background: green; }
+
+/* 0727 */
+/* ! 
+  居中 (1、固定宽、高，2.自适应宽、高)
+*/
+/* 引用 */
+.oneMask > .cont {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 存在 width height */
+  width: 5.3333333333rem;
+  height: 5.3333333333rem;
+  background: #fff;
+  /*FF IE7*/
+  position: fixed !important;
+  /*FF IE7 该值为本身宽的一半 */
+  margin-left: -2.6666666667rem !important;
+  /*FF IE7 该值为本身高的一半*/
+  margin-top: -2.6666666667rem !important;
+  margin-top: 0;
+  z-index: 2; }
+
+.oneMask > .mask {
+  /* mask */
+  background-color: #006464;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  /*FF IE7*/
+  z-index: 1;
+  position: fixed !important;
+  /*FF IE7*/
+  position: absolute;
+  /*IE6*/ }
+
+.qw > .wtn {
+  position: absolute;
+  bottom: 0;
+  background: red;
+  z-index: 2;
+  width: 100%;
+  height: 200px; }
+
+.qw > .mask3 {
+  /* mask */
+  background-color: #006464;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  /*FF IE7*/
+  z-index: 1;
+  position: fixed !important;
+  /*FF IE7*/
+  position: absolute;
+  /*IE6*/ }
+
+/* 0803 */
+.wt {
+  font-weight: 200;
+  font-weight: 400; }
+
+.rtt {
+  width: 100%; }
+
+.w, .b {
+  font-weight: 200; }
+
+/*  */
+.button-green {
+  color: #fff;
+  background: green;
+  border: 1px solid #fff; }
+
+/*  */
+.background-green1 {
+  font-size: 1em;
+  padding: 0.5em 1.0em;
+  text-decoration: none;
+  color: #fff;
+  background: green; }
+
+/*  1 */
+.font-size {
+  background: red; }
+
+.font-b {
+  width: 100%; }
+
+button {
+  background: red; }
+
+input {
+  background: #eee; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+/*  */
+.button-green {
+  font-size: 1em;
+  padding: 0.5em 1.0em;
+  text-decoration: none;
+  color: #fff;
+  background: green; }
+
+/*  */
+.font-u {
+  font-weight: 100; }
+
+.font-t {
+  font-weight: 200; }
+
+.font-l {
+  font-weight: 300; }
+
+.font-r {
+  font-weight: 400; }
+
+.font-m {
+  font-weight: 500; }
+
+.font-s {
+  font-weight: 600; }
+
+.font-b {
+  font-weight: 700; }
+
+/*  */
+.fl {
+  font-size: 1.4933333333rem;
+  line-height: 1.4285714286; }
+
+.imgHeight {
+  padding-bottom: 200%; }

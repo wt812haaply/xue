@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script>
+		window.onload=function()
+		{
+			// 隔行变色
+			var oulu=document.getElementById('ulu');
+			var oli=oulu.getElementsByTagName('li');
+			var i=0;
+			var tim=100;
+
+			for ( i=0; i<oli.length; i++)
+			 {
+				if (i%2==0)
+				 {
+				 	oli[i].style.background='red';
+				 }
+			}
+
+			//余数计算100 有几分几秒
+			var sj=parseInt(tim/60)+"分"+parseInt(tim%60)
+			document.getElementById('shijian').innerHTML=sj;
+
+
+			// if else
+			var a=10;
+				b=20;
+				c=a+b;
+				var ji=document.getElementById('panduan1');
+			if (c<21)
+
+			 {
+			 	ji.innerHTML="小于三十显示";
+			 }
+			 else
+			 {
+			 	ji.innerHTML=c;
+			 }
+
+			 // ?: 三目
+			 var ji=document.getElementById('panduan2');
+			 c<21?ji.innerHTML="小于三十显示":ji.innerHTML=c
+
+
+			 // json
+			 // var jsonTest1={a:1,b:2,c:3,d:[1,2,3,4,5,6,7]};
+			 // 		alert(jsonTest1.d[2])
+			// var jsonTest2=[{a:1, b:2, c:'abcd', d:[1,2,3,4,5,6,7,8]},{e:111, f:3333}];
+			// 	// alert(jsonTest2[1].f)
+			// 	alert(jsonTest2.length)
+
+
+
+			// return
+			function returnText(a,b)
+			{
+				return  a+b;
+			}
+			document.getElementById('returnT').innerHTML=returnText(3,5)
+
+
+
+			// arguments 
+			function argumentsText()
+			{	
+				document.getElementById('argumentsT').innerHTML=arguments[1];
+			}	
+			argumentsText(5,51)
+
+
+			// arguments 求和
+			// function argText()
+			// {
+			// 	alert(parseInt(arguments[0])+parseInt(arguments[1])+parseInt(arguments[2]))
+			// }
+			// argText(2,5,6);
+
+			// arguments 无限求和
+			// function argText2()
+			// {
+			// 	var oarg=0;
+			// 		i=0;
+
+			// 	for (i=0;i<arguments.length;i++)
+			// 	 {
+			// 		oarg+=arguments[i]
+			// 	}
+
+			// 	// alert()
+			// 	document.getElementById('qiuhe').innerHTML=oarg
+			// }
+			// argText2(3,5,6,7,8,9,99,0,1,2)
+
+
+		}
+	</script>
+	<style type="text/css">
+	#divArg{
+		width: 100px; height: 100px; background: red;
+	}
+</style>	
+</head>
+
+<body>
+	<button id="btnArg" value="按钮">按钮</button>
+	<div id="divArg"></div>
+	<br>
+	<h2>隔行变色</h2>
+	<ul id="ulu">
+	    <li></li>
+	    <li></li>
+	    <li></li>
+	    <li></li>
+	</ul>
+	<Br>
+	<!-- 时分秒 -->
+	<h2>时分秒</h2>
+	<div id="shijian"></div>
+	<Br>
+	<!-- if else -->
+	<h2>if else</h2>
+	<div id="panduan1"></div>
+	<Br>
+	<!-- 三目 -->
+	<h2>三目</h2>
+	<div id="panduan2"></div>
+	<Br>
+	<!-- reture -->
+	<h2>reture</h2>
+	<div id="returnT"></div>
+	<!-- argumentsText -->
+	<h2>arguments</h2>
+	<div id="argumentsT"></div>
+	<div id="qiuhe"></div>
+</body>
+</html>

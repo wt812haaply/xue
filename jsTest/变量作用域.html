@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变量作用域</title>
+	<script type="text/javascript">
+
+
+		// 局部变量-------
+		// function aa()
+		// {
+		// 	var a=10;
+		// }
+
+		// function bb()
+		// {
+		// 	alert(a);
+		// }
+
+		// aa();
+		// bb();
+
+
+		// 全局变量  不定义任何一个函数里面， 可以在任何地方去用。-------
+		// c =10;
+		// function cc()
+		// {
+		// 	c=10;
+		// }
+
+		// function dd()
+		// {
+		// 	alert(c);
+		// }
+
+		// cc();
+		// dd();
+
+
+
+		// 闭包 --------
+		function ee()
+		{
+			var e=10;
+
+			function ff()
+			{
+				// alert(e);
+				console.log(e)
+			}
+			ff();
+		}
+		ee();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

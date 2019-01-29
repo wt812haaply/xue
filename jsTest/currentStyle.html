@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+#div1{
+	width: 100px; height: 100px; background: blue;
+}
+</style>
+
+<script type="text/javascript">
+	window.onload = function ()
+	{
+		odiv1=document.getElementById('div1');
+
+		// alert(odiv1.currentStyle.width)
+
+		// alert(getComputedStyle(odiv1,true).width)
+
+		// if (odiv1.style.width) 
+		// {}
+
+		if (odiv1.currentStyle) 
+		{
+			alert(odiv1.currentStyle.width)
+		}
+		else if (getComputedStyle(odiv1,true))
+		{
+			alert(getComputedStyle(odiv1,true).width)
+		}
+	}
+</script>
+<body>
+	<div id="div1">1111</div>
+</body>
+</html>

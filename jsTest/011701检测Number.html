@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	#div1{
+	border: 1px rgba(0, 0, 0, 0.5) solid;
+	width: 400px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	margin: 0 auto;
+	cursor: pointer;
+}
+</style>
+<body>
+	<div id="div1">ttt</div>
+	<script type="text/javascript">
+
+		var odiv=document.getElementById("div1");
+		//获取id=div1的值(nodeValue)
+		var txt = odiv.childNodes[0].nodeValue  
+		//用于检测当前值是不是Number类型
+		var num = typeof +txt === 'number' && isFinite(+txt)
+		console.log(txt.length)
+
+		/*
+			判断id=div1的值 
+			1.大于( >0 ) 
+			2.txt.length 的长度大于( >0 )
+			强制等于等于( = )0
+		*/
+
+		function fn(){
+			if(txt > 0 || txt.length > 0){
+				odiv.innerHTML = '点击累加';
+				console.log(odiv.innerHTML,'????')
+				console.log('mmmm')
+			}
+		}
+
+		if(num){
+			console.log('数字')
+			odiv.onclick=function()
+			{
+				var i = 0;
+				fn();
+				return function f1(){
+					i++;
+					odiv.innerHTML=i;
+				} 
+			}()
+		} else if(txt != num && txt != 0 ){
+			console.log('不是数字')
+			var bb = '不是数字'
+			odiv.innerHTML = bb;
+		}
+			
+	</script>
+
+</body>
+</html>

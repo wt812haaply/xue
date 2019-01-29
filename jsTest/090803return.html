@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+
+		function info(){
+			console.log("go");
+			for(var i = 0 ; i < 5; i++){
+				if(i == 2){
+					// 使用break 可以退出当前的循环
+					// break 
+
+					// return 退出整个循环
+					// return
+
+					// continue 跳出当前条件（当前次）的循环
+					// continue
+				}
+				console.log(i)
+			}
+			console.log("end")
+		}
+		info();
+
+
+		console.log('-------分割线-------')
+
+		function info2(){
+			return 10
+		}
+		pp = info2()
+		console.log(pp)
+
+
+		console.log('-------分割线-------')
+
+		function info3(){
+			var obj = { name: "名字",age:[{one:'1',two:'2',three:'3'},{one1:'1',two1:'2',three1:'3'}]}
+			return obj;
+		}
+		pp2 = info3();
+		console.log(pp2)
+		console.log(pp2.name)
+		
+		if(pp2.age.length <= 2){
+			console.log('对了，是' + pp2.age.length + '个')
+		} else{
+			console.log(pp2.age.length)
+		}
+
+
+		console.log('-------分割线-------')
+
+		function fun3(){
+			function fun4(){
+				console.log('5')
+			}
+			return fun4;
+		}
+		console.log('----')
+
+		//1
+		// a = fun3()
+		// a()
+
+		//2
+		fun3()()
+
+
+
+		console.log('-------分割线-------')
+
+		function one(){
+			function two(){
+				console.log('b','------b--------')
+			}
+			return two
+		}
+		// mmm = one()
+		// mmm()
+
+		one()()
+
+
+	var	mn = function(){
+			console.log('1')
+		}
+		mn();
+
+
+		// 立即执行 函数
+		(function(a,b){
+			console.log('匿名函数');
+			console.log('a = ' + a);
+			console.log('b = ' + b);
+		})(111,222);
+
+
+		function a(){
+			console.log('a')
+			function b(){
+				console.log('b')
+			}
+			// b();
+			return b
+		}
+		a()();
+
+
+
+		console.log('-------分割线-------')
+		// 1
+		var obj = new Object();
+		obj.name="姓名";
+		obj.age="19";
+		obj.sh = function(){
+			console.log(obj.name);
+		}
+		//调用obh.sh() 方法
+		obj.sh();
+
+
+		// 2 同上（1）
+ 		var info = {
+ 			name:'nagy',
+ 			age:'33',
+ 			height:function(){
+ 				console.log('176')
+ 			}
+ 		};
+ 		info.height();
+
+
+
+
+
+
+
+		
+	</script>
+</body>
+</html>

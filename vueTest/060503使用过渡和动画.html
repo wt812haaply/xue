@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" type="text/css" href="animate.css">
+
+</head>
+<style type="text/css">
+@keyframes bounce-in{
+			0%{
+				transform: scale(0);
+			}
+			50%{
+				transform: scale(2);
+			}
+			100%{
+				transform: scale(1);
+			}
+		}
+
+		.active{
+			transform-origin: left center;
+			animation: bounce-in 1s;
+		}
+		.leave{
+			transform-origin: left center;
+			animation: bounce-in 1s reverse;
+		}	
+</style>
+<body>
+	<div id="app">
+		
+		<transition 
+			appear
+			enter-active-class="animated slideOutDown" lang="结束的动画"
+			leave-active-class="animated swing"	lang="点击后执行的动画"
+			appear-active-class="animated flash" lang="入场动画"
+			>
+			<div v-if="show">111111</div>
+		</transition>	
+
+		<button @click="handle">按钮</button>
+	</div>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#app",
+			data:{
+				content:'11111',
+				show:true,
+			},
+			methods:{
+				handle:function(){
+					this.show = !this.show
+				}
+			},
+		})
+	</script>
+</body>
+</html>

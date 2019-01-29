@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function fo(){
+			var i=0;
+			return function (n){
+				return n+i++;
+			}
+		}
+		var f=fo();  console.log(f);
+		var a=f(15); console.log(a);
+		var b=fo()(15); console.log(b);
+		var c=fo()(20); console.log(c);
+		var d=f(20); console.log(d);
+
+
+
+
+	</script>
+	
+	
+
+
+	<!-- 
+		fo
+
+		f 
+		a
+		b
+		c
+		d
+	 -->
+</body>
+</html>

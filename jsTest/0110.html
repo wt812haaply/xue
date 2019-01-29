@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<script type="text/javascript">
+	var i = 0;
+	function makeCounter() {
+    // 只能在makeCounter内部访问i
+	    var i = 12;
+	    return function fn(){
+	    	return ++i
+	    }
+	}
+	
+	
+
+	var bb = makeCounter()
+	console.log(bb(),'?')
+	console.log(bb())
+
+	var cc = makeCounter()
+	console.log(cc())
+	console.log(cc())
+
+	console.log(i)
+
+	
+
+	</script>
+</body>
+</html>

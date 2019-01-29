@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		// 求偶数
+		// function isOu(num){
+		// 	return num%2 == 0 ? true : false
+		// }
+		// result = isOu(11)
+		// console.log(result)
+
+
+
+		// 求一个圆的面积
+		function mianji(r){
+			return 3.14*r*r
+		}
+		result = mianji(10)
+		console.log(result)
+
+
+
+		// 一个人的信息
+		var info2 = {
+			name:"姓名",
+			age:"18",
+			gender:"男",
+			address:"北京",
+		}
+		
+		function people(info){
+			return desc = info.name + info.age + info.gender + info.address
+		}
+		
+		result = people(info2)
+		console.log(result)
+
+
+		// test
+		function test(a){
+			console.log("a = " +  a);
+		}
+		test(mianji(100));
+		test(people(info2) + mianji(90))
+
+
+	</script>
+</body>
+</html>

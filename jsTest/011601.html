@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script type="text/javascript">
+    var a = 1;
+    // function interval(func, wait) {
+    //     var interv = function(w) {
+    //         return function() {
+    //             setTimeout(interv, w);
+    //             func.call(null);
+    //         }
+    //     }(wait);
+    //     setTimeout(interv, wait);
+    // }
+    // interval(function() {
+    //     console.log(a, '1');
+    // }, 1000);
+
+
+    function aa(a1,b1){
+      var bb = function (w){
+        return function(){
+        setTimeout(bb,w);
+          a1.call(null);
+        }
+      }(b1)
+      setTimeout(bb,b1);
+    }
+
+    aa(function (){
+      // console.log(a++)
+    },1000)
+
+
+
+    </script>
+</body>
+
+</html>
